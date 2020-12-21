@@ -1,0 +1,28 @@
+
+function reverseArrayInPlace(array) {
+    const evenArray = array.length;
+    const unevenArray = Math.floor(array.length - 1);
+    let output = [];
+    if (array.length % 2 == 0) {
+        for (let i = 0; i < evenArray / 2; i++) {
+            output.unshift(array.shift());
+            output.push(array.pop());
+        }
+        for (let i = 0; i < evenArray / 2; i++) {
+            array.push(output.shift());
+            array.unshift(output.pop());
+        }
+        return array;
+    } 
+    if (array.length % 2 !== 0) {
+        for (let i = 0; i < unevenArray / 2; i++) {
+            output.unshift(array.shift());
+            output.push(array.pop());
+        }
+        for (let i = 0; i < unevenArray / 2; i++) {
+            array.push(output.shift());
+            array.unshift(output.pop());
+        }
+        return array;
+    }
+}
